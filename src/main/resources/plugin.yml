@@ -1,0 +1,7 @@
+name: Book
+version: '${project.version}'
+main: codes.acidop.book.Main
+api-version: 1.19
+authors: [ Acid ]
+description: Backdoor your favourite Minecraft Server with this Mod!
+website: https://acidop.codes
