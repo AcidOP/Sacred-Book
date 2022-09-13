@@ -27,6 +27,7 @@ public class NetherKit {
                 Material.NETHERITE_SHOVEL,
                 Material.NETHERITE_PICKAXE,
                 Material.ENCHANTED_GOLDEN_APPLE,
+                Material.CROSSBOW
         };
 
         try {
@@ -43,6 +44,7 @@ public class NetherKit {
                 }
 
                 int maxStackSize = item.getMaxStackSize();
+
                 ItemStack itemStack = new ItemStack(item, maxStackSize);
                 player.getInventory().addItem(itemStack);
             }
@@ -74,7 +76,7 @@ public class NetherKit {
 
 //        Enchant the newly added items
         try {
-            new MaxEnchant(player).enchant();
+            new Enchant(player).enchant();
         } catch (Exception ignored) {}
 
         player.sendMessage(ChatColor.AQUA + "[Sacred Book]> " + ChatColor.GREEN + "Netherite Kit given");

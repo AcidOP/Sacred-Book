@@ -52,7 +52,6 @@ public class Give {
             errorMessage += ChatColor.RED + "The quantity must be a number";
             error = true;
         }
-
     }
 
     public void give() {

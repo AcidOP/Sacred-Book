@@ -6,11 +6,11 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
-public class MaxEnchant {
+public class Enchant {
 
     private final Player player;
 
-    public MaxEnchant(Player player) {
+    public Enchant(Player player) {
         this.player = player;
     }
 
@@ -32,11 +32,11 @@ public class MaxEnchant {
 //                        Maximum Level of enchantment
                     int maxLevel = enchantment.getMaxLevel();
 //                        I prefer Fortune 3 for my pickaxe
-                    if ((itemStack.getType().name().contains("PICKAXE")) && (enchantment.equals(Enchantment.SILK_TOUCH))) {
+                    if (itemStack.getType().name().contains("PICKAXE") && enchantment.equals(Enchantment.SILK_TOUCH)) {
                         continue;
                     }
 //                        And Silk Touch for shovel
-                    if ((itemStack.getType().name().contains("SHOVEL")) && (enchantment.equals(Enchantment.LOOT_BONUS_BLOCKS))) {
+                    if (itemStack.getType().name().contains("SHOVEL") && enchantment.equals(Enchantment.LOOT_BONUS_BLOCKS)) {
                         continue;
                     }
                     itemStack.addEnchantment(enchantment, maxLevel);

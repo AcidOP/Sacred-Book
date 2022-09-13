@@ -44,7 +44,6 @@ public class ChangeMode {
                 error = true;
                 break;
         }
-
     }
 
     public void changeMode() {

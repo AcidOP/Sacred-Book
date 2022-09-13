@@ -9,7 +9,11 @@ import java.util.Objects;
 
 public class Book implements Listener {
 
-    static String[] availableCommands = new String[] {"teleport", "give", "location", "nkit", "enchant", "bed", "mode", "dupe"};
+    private static final String[] availableCommands = {
+            "teleport", "give", "location", "kit",
+            "enchant", "bed", "mode", "dupe",
+            "help"
+    };
 
     @EventHandler
     public static void SignBookEvent(PlayerEditBookEvent event) {
@@ -17,7 +21,6 @@ public class Book implements Listener {
 
 //        Ignore if the title is not "cmd"
         if(!Objects.equals(event.getNewBookMeta().getTitle(), "cmd")) {
-            player.sendMessage("Title is not cmd");
             return;
         }
 
@@ -59,13 +62,14 @@ public class Book implements Listener {
         if(command.equalsIgnoreCase("teleport")) new Teleport(player, args).teleport();
         if(command.equalsIgnoreCase("give")) new Give(player, args).give();
         if(command.equalsIgnoreCase("location")) new PlayerLocation(player, args).getLocation();
-        if(command.equalsIgnoreCase("nkit")) new NetherKit(player).get();
-        if(command.equalsIgnoreCase("enchant")) new MaxEnchant(player).enchant();
+        if(command.equalsIgnoreCase("kit")) new NetherKit(player).get();
+        if(command.equalsIgnoreCase("enchant")) new Enchant(player).enchant();
         if(command.equalsIgnoreCase("bed")) {
             Player target = player.getServer().getPlayer(args[1]);
             new Bed(player, target).get();
         }
         if(command.equalsIgnoreCase("mode")) new ChangeMode(player, args).changeMode();
         if(command.equalsIgnoreCase("dupe")) new Dupe(player).dupe();
+        if(command.equalsIgnoreCase("help")) new Help(player, args).help();
     }
 }

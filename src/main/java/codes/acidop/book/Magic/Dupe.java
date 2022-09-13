@@ -16,7 +16,8 @@ public class Dupe {
 
         ItemStack offHand = player.getInventory().getItemInOffHand();
 
-        if(offHand.toString().equals("AIR")) {
+//        Check if offhand is empty
+        if(offHand.getAmount() == 0) {
             String err = ChatColor.AQUA + "[Sacred Book]> " + ChatColor.RED + "You must hold an item in your off hand";
             player.sendMessage(err);
             return;
