@@ -23,7 +23,7 @@ The book and quill is then signed by a player.
 
 ## How do I use this?
 ```
-1. Download the latest version of the mod from the releases page.
+1. Download the latest version of the plugin from the releases page.
 2. Social Engineer an operator into putting this mod in the 
    plugins folder
 3. Start your server.
