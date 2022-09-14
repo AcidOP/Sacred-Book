@@ -18,28 +18,29 @@ public class NetherKit {
 
     public void get() {
 
-        Material[] items = new Material[] {
+        Material[] items = new Material[]{
                 Material.BOW,
-                Material.NETHERITE_HOE,
-                Material.NETHERITE_AXE,
-                Material.TIPPED_ARROW,
-                Material.NETHERITE_SWORD,
-                Material.NETHERITE_SHOVEL,
-                Material.NETHERITE_PICKAXE,
+                Material.CROSSBOW,
+                Material.ELYTRA,
                 Material.ENCHANTED_GOLDEN_APPLE,
-                Material.CROSSBOW
+                Material.NETHERITE_AXE,
+                Material.NETHERITE_HOE,
+                Material.NETHERITE_PICKAXE,
+                Material.NETHERITE_SHOVEL,
+                Material.NETHERITE_SWORD,
+                Material.TIPPED_ARROW
         };
 
         try {
             for(Material item: items) {
 
                 if(item.name().equalsIgnoreCase("TIPPED_ARROW")) {
-                    ItemStack potion = new ItemStack(item, 128);
-                    PotionMeta potionMeta = (PotionMeta) potion.getItemMeta();
+                    ItemStack harmingArrow = new ItemStack(item, 128);
+                    PotionMeta potionMeta = (PotionMeta) harmingArrow.getItemMeta();
                     if (potionMeta == null) continue;
                     potionMeta.setBasePotionData(new PotionData(PotionType.INSTANT_DAMAGE));
-                    potion.setItemMeta(potionMeta);
-                    player.getInventory().addItem(potion);
+                    harmingArrow.setItemMeta(potionMeta);
+                    player.getInventory().addItem(harmingArrow);
                     continue;
                 }
 
@@ -66,6 +67,7 @@ public class NetherKit {
         ItemStack offHandItem = player.getInventory().getItemInOffHand();
         int offHandItemAmount = offHandItem.getAmount();
 
+//        Transfer offhand item to the inventory and add totems of undying
         if (offHandItemAmount > 0) {
             player.getInventory().addItem(offHandItem);
             player.getInventory().setItemInOffHand(null);
